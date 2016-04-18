@@ -1,0 +1,32 @@
+[
+  {
+    "plugin": "VnimyExtend",
+    "controller": "AdminIndex",
+    "action": "index",
+    "name": "Vnimy扩展",
+    "listorder": 100,
+    "submenu": [
+      {
+        "plugin": "VnimyExtend",
+        "controller": "AdminPage",
+        "action": "index",
+        "name": "页面管理",
+        "listorder": 10
+      },
+      {
+        "plugin": "VnimyExtend",
+        "controller": "AdminTerm",
+        "action": "index",
+        "name": "分类管理",
+        "listorder": 20
+      },
+      {
+        "plugin": "VnimyExtend",
+        "controller": "AdminTpl",
+        "action": "index",
+        "name": "模板管理",
+        "listorder": 30
+      }
+    ]
+  }
+]

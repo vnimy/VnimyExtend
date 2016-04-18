@@ -1,0 +1,32 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:sp_plugin_url('VnimyExtend://AdminTpl/index')}">{:L('ALL_TPL')}</a></li>
+        <li class="active"><a>{:L('ADD_TPL')}</a></li>
+    </ul>
+    <form class="form-horizontal js-ajax-form" action="{:sp_plugin_url('VnimyExtend://AdminTpl/add_post')}" method="post">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label">{:L('TPL_NAME')}</label>
+                <div class="controls">
+                    <input type="text" name="tpl_name" value="" placeholder="页面"><span class="form-required">*</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">{:L('TPL_PATH')}</label>
+                <div class="controls">
+                    <input type="text" name="tpl_path" value="" placeholder="page"><span class="form-required">*</span>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-actions">
+            <button class="btn btn-primary js-ajax-submit"type="submit">{:L('ADD')}</button>
+            <a class="btn" href="{:sp_plugin_url('VnimyExtend://AdminTpl/index')}">{:L('BACK')}</a>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

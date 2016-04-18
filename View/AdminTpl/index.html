@@ -1,0 +1,58 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:sp_plugin_url('VnimyExtend://AdminTpl/index')}">{:L('ALL_TPL')}</a></li>
+        <li><a href="{:sp_plugin_url('VnimyExtend://AdminTpl/add')}">{:L('ADD_TPL')}</a></li>
+    </ul>
+    <form method="post" class="js-ajax-form" action="{:sp_plugin_url('VnimyExtend://AdminTpl/listorders')}">
+        <div class="table-actions">
+            <button type="submit" class="btn btn-primary btn-small js-ajax-submit">{:L('SORT')}</button>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="15"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="50">{:L('SORT')}</th>
+                <th width="50">ID</th>
+                <th>{:L('TPL_NAME')}</th>
+                <th>{:L('TPL_PATH')}</th>
+                <th>{:L('ACTIONS')}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="tpls" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.tpl_id}" title="ID:{$vo.tpl_id}"></td>
+                    <td><input name="listorders[{$vo.tpl_id}]" class="input input-order" type="text" size="5" value="{$vo.listorder}" title="ID:{$vo.tpl_id}"></td>
+                    <td>{$vo.tpl_id}</td>
+                    <td>{$vo.tpl_name}</td>
+                    <php>$color = $vo[file_exists] ? "green":"red";</php>
+                    <td style="color:{$color}">{$vo.tpl_path}</td>
+                    <td>
+                        <a href="{:sp_plugin_url('VnimyExtend://AdminTpl/edit', array('tpl_id'=>$vo[tpl_id]))}">{:L('EDIT')}</a> |
+                        <a href="{:sp_plugin_url('VnimyExtend://AdminTpl/delete', array('tpl_id'=>$vo[tpl_id]))}" class="js-ajax-delete">{:L('DELETE')}</a>
+                    </td>
+                </tr>
+            </foreach>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th width="15"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th>{:L('SORT')}</th>
+                <th>ID</th>
+                <th>{:L('TPL_NAME')}</th>
+                <th>{:L('TPL_PATH')}</th>
+                <th>{:L('ACTIONS')}</th>
+            </tr>
+            </tfoot>
+        </table>
+        <div class="table-actions">
+            <button type="submit" class="btn btn-primary btn-small js-ajax-submit">{:L('SORT')}</button>
+        </div>
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>
