@@ -26,4 +26,8 @@ class AdminIndexController extends PluginController{
     function index(){
         $this->display();
     }
+
+    function media(){
+        redirect('./plugins/VnimyExtend/view/assets/js/plugins/ckfinder/ckfinder.html');
+    }
 }

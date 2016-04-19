@@ -32,6 +32,21 @@
 							</td>
 						</tr>
 						<tr>
+							<th>侧栏菜单</th>
+							<td>
+								<php>
+									$nav_cat=M('NavCat')->select();
+								</php>
+								<select style="min-width: 290px;" name="smeta[nav_cat]">
+									<option value="0">----无----</option>
+									<foreach name="nav_cat" item="vo">
+										<php>$nav_selected=$smeta[nav_cat]==$vo[navcid]?"selected":"";</php>
+										<option value="{$vo.navcid}" {$nav_selected}>{$vo.name}</option>
+									</foreach>
+								</select>
+							</td>
+						</tr>
+						<tr>
 							<th>关键词</th>
 							<td>
 								<input type="text" name="post[post_keywords]" style="width: 280px" value="{$post['post_keywords']}" placeholder="请输入关键字">

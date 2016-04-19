@@ -28,10 +28,11 @@ class AdminPageController extends PluginController{
         }
         $this->tpl_model = D("plugins://VnimyExtend/Tpl");
         $this->posts_model =D("Common/Posts");
+        session('roleSessionVar','admin');
     }
 
     function index(){
-
+        echo $this->plugin_root;
         $where_ands=array("post_type=2 and post_status=1");
         $fields=array(
             'start_time'=> array("field"=>"post_date","operator"=>">"),
